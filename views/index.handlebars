@@ -1,0 +1,36 @@
+<h1>My News</h1>
+
+<p>Save notes about the articles you read</p>
+  <div id="articles"></div>
+      <div id="notes"></div>
+<!-- Pass in data from server.js -->
+<ul>
+  {{#each Article}}
+  	<li>
+  		<p><span class="label">Title:</span> {{this.title}}</p>
+      <p><span class="label">Summary:</span> {{this.summary}}</p>
+      <p><span class="label">Link:</span> {{this.link}}</p>
+
+      <button data-id="{{this.id}}" class="delquote">Delete</button>
+
+      <a href="/{{this.id}}">Add a note</a>
+  	</li>
+  {{/each}}
+</ul>
+
+<h2>Add a Note</h2>
+
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="auth">Author:</label>
+    <input type="text" id="auth" name="author">
+  </div>
+
+  <div class="form-group">
+    <label for="quo">Comment:</label>
+    <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
+  </div>
+
+  <button type="submit">Submit Note</button>
+</form>
