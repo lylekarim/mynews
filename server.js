@@ -43,10 +43,11 @@ const router = require("./routes/apiRoute.js");
 app.use(router);
 
 
-mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true });
 // Connect to the Mongo DB
-// const MONGODB_URI = process.env.MONGODB_URI || ("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true });
 
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+mongoose.connect(MONGODB_URI);
 
 
 // Start the server
