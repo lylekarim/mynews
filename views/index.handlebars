@@ -1,36 +1,53 @@
-<h1>My News</h1>
-
-<p>Save notes about the articles you read</p>
-  <div id="articles"></div>
-      <div id="notes"></div>
-<!-- Pass in data from server.js -->
-<ul>
-  {{#each Article}}
-  	<li>
-  		<p><span class="label">Title:</span> {{this.title}}</p>
-      <p><span class="label">Summary:</span> {{this.summary}}</p>
-      <p><span class="label">Link:</span> {{this.link}}</p>
-
-      <button data-id="{{this.id}}" class="delquote">Delete</button>
-
-      <a href="/{{this.id}}">Add a note</a>
-  	</li>
-  {{/each}}
-</ul>
-
-<h2>Add a Note</h2>
-
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="auth">Author:</label>
-    <input type="text" id="auth" name="author">
-  </div>
-
-  <div class="form-group">
-    <label for="quo">Comment:</label>
-    <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
-  </div>
-
-  <button type="submit">Submit Note</button>
-</form>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">My News</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Home
+                <span class="sr-only">(current)</span>
+            </a>
+            <a class="nav-item nav-link" href="/saved">Saved Articles</a>
+            <a href="/scrape" class="btn btn-danger active" role="button" aria-pressed="true">Scrape NPR</a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+        <div class="jumbotron text-center background-image">
+            <div class="overlay">
+                <div class="caption">
+                    <h1 class="display-1 text-white">My News</h1>
+                    <h2 class="text-white">NPR Edition</h2>
+                </div>
+            </div>
+        </div>
+    <div class=row>
+        <div class="col-12">
+            {{#if articles}}
+            {{#each articles}}
+                <div class="card w-90">
+                    <div class="card-header text-white bg-primary">
+                        <a href={{link}} target="_blank" class="text-white">
+                            <h2>{{title}}</h2>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{summary}}
+                        </p>
+                        <button id="{{_id}}" class="btn btn-primary save-btn">Save Article</button>
+                    </div>
+                </div>
+            {{/each}}
+            {{else}}
+                <div class="card text-white bg-warning w-90 p-1">
+                    <div class="card-body text-center">
+                        Uh oh. Looks like we don't have any new articles
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>
