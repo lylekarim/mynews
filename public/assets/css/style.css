@@ -5,11 +5,11 @@ html {
 
 body {
   margin-bottom: 80px;
-  background-image: url("../images/paper.png");
+  /* background-image: url("../images/paper.png"); */
 }
 
 .card a:not([href]):not([tabindex]).scrape-new {
-  color: #2196F3;
+  color: rgb(119, 119, 117);
 }
 
 .footer {
@@ -18,7 +18,7 @@ body {
   width: 100%;
   height: 80px;
   color: white;
-  background-color: #2196f3;
+  background-color: #494b4d;
 }
 
 .navbar {
@@ -28,10 +28,13 @@ body {
 .jumbotron {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 240px;
   padding: 0;
-  font-family: "Cormorant SC";
+  font-family: "Arial", sans-serif;
+  color:#08be08;
   box-shadow: 10px 5px 20px 2px lightslategrey;
+  background-image: url("../images/impeached.jpeg");
+  
 }
 
 .jumbotron .overlay {
@@ -41,15 +44,11 @@ body {
   bottom: 0;
   left: 0;
   z-index: auto;
-  background: linear-gradient(#333, black);
+  background: linear-gradient(rgb(235, 232, 232), black);
   opacity: 0.7;
+  
 }
 
-.jumbotron .background-image {
-  height: 100%;
-  background-image: url("../images/newspaper.jpg");
-  background-size: cover;
-}
 
 .jumbotron .caption {
   position: absolute;

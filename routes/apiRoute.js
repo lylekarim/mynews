@@ -6,7 +6,6 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 
 
-
 // A GET route for scraping the echoJS website
 app.get("/scrape", function (req, res) {
   // First, we grab the body of the html with axios
@@ -32,7 +31,7 @@ app.get("/scrape", function (req, res) {
         .attr("href");
 
       result.summary = $(this)
-        .children("a")
+        .sibling(".teaser")
         .attr("href");
 
       // Create a new Article using the `result` object built from scraping
