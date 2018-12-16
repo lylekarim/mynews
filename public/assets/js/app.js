@@ -49,12 +49,17 @@ $(document).ready(function () {
 
   $("#save-note").click(function (event) {
       event.preventDefault();
-      const id = $(this).attr('data');
-      const noteText = $('#note-input').val().trim();
-      $('#note-input').val('');
+      const id = $(this).attr('data-id');
+      //const noteText = $('#note-input').val().trim();
+      //$('#titleinput').val('');
       $.ajax(`/note/${id}`, {
           type: "POST",
-          data: { text: noteText}
+          data: {
+            // Value taken from title input
+            title: $("#titleinput").val(),
+            // Value taken from note textarea
+            body: $("#bodyinput").val()
+          }
       }).then(function (data) {
           console.log(data)
       })

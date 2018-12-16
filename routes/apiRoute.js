@@ -9,7 +9,7 @@ var cheerio = require("cheerio");
 // A GET route for scraping the echoJS website
 app.get("/scrape", function (req, res) {
   // First, we grab the body of the html with axios
-  axios.get("http://www.npr.com/").then(function (response) {
+  axios.get("https://www.npr.org/sections/news/").then(function (response) {
    
   //  if (!error && response.statusCode === 200) {
   // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -17,7 +17,7 @@ app.get("/scrape", function (req, res) {
   
     let count = 0;
     // Now, we grab every h2 within an article tag, and do the following:
-    $("article h2").each(function (i, element) {
+    $("h2").each(function (i, element) {
       let count = i;
       // Save an empty result object
       var result = {};
@@ -31,11 +31,11 @@ app.get("/scrape", function (req, res) {
         .attr("href");
 
       result.summary = $(this)
-        .sibling(".teaser")
-        .attr("href");
+        .siblings("p.teaser")
+        .text();
 
       // Create a new Article using the `result` object built from scraping
-      if (result.title && result.link) {
+      if (result.title && result.link && result.summary) {
 
         db.Article.create(result)
           .then(function (dbArticle) {
@@ -147,8 +147,11 @@ app.get("/articles/:id", function (req, res) {
     });
 });
 
+
+
+
 // Route for saving/updating an Article's associated Note
-app.post("/articles/:id", function (req, res) {
+app.post("/note/:id", function (req, res) {
   // Create a new note and pass the req.body to the entry
   db.Note.create(req.body)
     .then(function (dbNote) {
@@ -167,7 +170,7 @@ app.post("/articles/:id", function (req, res) {
     });
 });
 
-app.delete("/articles/:id", function (req, res) {
+app.delete("/note/:id", function (req, res) {
   // find all notes attached to articles
   db.Note.findByIdAndRemove({ _id: req.params.id })
     .then(function (dbNote) {

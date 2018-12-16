@@ -5,7 +5,11 @@ html {
 
 body {
   margin-bottom: 80px;
-  /* background-image: url("../images/paper.png"); */
+
+}
+a:hover {
+  color: rgb(246, 248, 246);
+  text-decoration: underline;
 }
 
 .card a:not([href]):not([tabindex]).scrape-new {
@@ -24,6 +28,10 @@ body {
 .navbar {
   margin-bottom: 0;
 }
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(248, 244, 20);
+}
+
 
 .jumbotron {
   position: relative;
@@ -59,7 +67,7 @@ body {
 
 .jumbotron .caption h1,
 .jumbotron .caption p {
-  color: white;
+  color: #0aeb15;
 }
 
 .jumbotron h1 {
@@ -74,7 +82,27 @@ body {
 .article-container {
   padding-bottom: 25px;
 }
+.btn-primary{
+  background-color: #b313b3;
+  border-color: #b313bb;
+}
 
+.btn-primary:hover {
+  color: #fff;
+  background-color: #f85df8;
+  border-color: #b313b3;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(218, 54, 209, 0.5);
+}
+
+.btn-scrape {
+  background-color: #0aeb15;
+  border-color: #0af015;
+  color:#333333;
+
+}
 .card {
   border-radius: 0;
   box-shadow: 3px 3px 20px lightslategrey;
@@ -82,7 +110,7 @@ body {
 }
 
 .card .card-header {
-  background-color: #2196f3;
+  background-color: #4f504f;
   position: relative;
   padding-top: 30px;
   padding-bottom: 30px;
