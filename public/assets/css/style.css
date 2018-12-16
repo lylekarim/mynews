@@ -28,8 +28,18 @@ a:hover {
 .navbar {
   margin-bottom: 0;
 }
+.navbar-dark .navbar-brand {
+  color:#f85df8 !important;
+}
+
+.navbar-brand {
+  font-weight:700;
+  font-size: 30px;
+
+}
+
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(248, 244, 20);
+  color: #f743f7
 }
 
 
@@ -98,9 +108,9 @@ a:hover {
 }
 
 .btn-scrape {
-  background-color: #0aeb15;
-  border-color: #0af015;
-  color:#333333;
+  background-color: #b313b3;
+  border-color: #b313b3;
+  color:#ffffff;
 
 }
 .card {
@@ -110,16 +120,18 @@ a:hover {
 }
 
 .card .card-header {
-  background-color: #4f504f;
+  background-color: #4f504f63;
   position: relative;
-  padding-top: 30px;
-  padding-bottom: 30px;
 }
 
 .card .card-header h3 {
-  color: white;
+  color: #333333;
 }
 
+.card .card-header a {
+  color: #333333;
+
+}
 .card .card-header .btn {
   position: absolute;
   top: 20px;
