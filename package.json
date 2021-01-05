@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "bootbox": "^4.4.0",
     "cheerio": "^1.0.0-rc.2",
     "dotenv": "^6.2.0",
